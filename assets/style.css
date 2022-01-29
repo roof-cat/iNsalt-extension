@@ -1,0 +1,44 @@
+h1 {
+    font-size: 2em;
+    margin: 0 0 30px;
+}
+label {
+    display: block;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+hr {
+    margin: 30px 0;
+}
+main{
+    display: flex;
+    padding: 30px;
+    max-width: 900px;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.m-y{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+button[type="submit"]{
+    font-size: 16px;
+    padding: 6px;
+}
+.icon{
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+.img {
+    background: url("icons/salt-bae-icon-0.jpg");
+    background-size: cover;
+    background-position: top center;
+    width: 350px;
+    margin-right: 30px;
+}

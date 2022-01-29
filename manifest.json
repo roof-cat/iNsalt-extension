@@ -1,0 +1,39 @@
+{
+  "name": "iNsalt",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Encrypt your passwords",
+  "icons": {
+    "16": "node_modules/@roof-cat/insalt-theme/icons/salt.png",
+    "48": "node_modules/@roof-cat/insalt-theme/icons/saltbae-color.png",
+    "128": "node_modules/@roof-cat/insalt-theme/icons/saltbae-color.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "node_modules/crypto-js/crypto-js.js",
+      "node_modules/@roof-cat/insalt-encryptor/index.js",
+      "src/background.js"
+    ],
+    "persistent": true
+  },
+  "options_page": "src/options/options.html",
+  "browser_action": {
+    "default_title": "Options"
+  },
+  "permissions": [
+    "chrome://favicon/",
+    "contextMenus",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/inject.js"
+      ]
+    }
+  ]
+}
