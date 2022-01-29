@@ -2,7 +2,6 @@
   "name": "insalt-extension",
   "version": "1.0.0",
   "dependencies": {
-    "@roof-cat/insalt-encryptor": "1.0.0",
     "@roof-cat/insalt-theme": "1.0.0"
   }
 }
