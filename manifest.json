@@ -12,7 +12,7 @@
   "background": {
     "scripts": [
       "node_modules/crypto-js/crypto-js.js",
-      "node_modules/@roof-cat/insalt-encryptor/index.js",
+      "node_modules/@roof-cat/insalt-encryptor/dist/main.js",
       "src/background.js"
     ],
     "persistent": true
