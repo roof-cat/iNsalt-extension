@@ -4,25 +4,26 @@
   "manifest_version": 2,
   "description": "Encrypt your passwords",
   "icons": {
-    "16": "node_modules/@roof-cat/insalt-theme/icons/salt.png",
-    "48": "node_modules/@roof-cat/insalt-theme/icons/saltbae-color.png",
-    "128": "node_modules/@roof-cat/insalt-theme/icons/saltbae-color.png"
+    "16": "node_modules/@roof-cat/insalt-theme/assets/salt.png",
+    "48": "node_modules/@roof-cat/insalt-theme/assets/saltbae-color.png",
+    "128": "node_modules/@roof-cat/insalt-theme/assets/saltbae-color.png"
   },
   "default_locale": "en",
   "background": {
     "scripts": [
-      "node_modules/crypto-js/crypto-js.js",
-      "node_modules/@roof-cat/insalt-encryptor/dist/main.js",
-      "src/background.js"
+      "dist/background.js"
     ],
     "persistent": true
   },
-  "options_page": "src/options/options.html",
+  "options_page": "dist/options.html",
+  "options_ui": {
+    "page": "dist/options.html",
+    "open_in_tab": true
+  },
   "browser_action": {
     "default_title": "Options"
   },
   "permissions": [
-    "chrome://favicon/",
     "contextMenus",
     "storage"
   ],
@@ -32,7 +33,7 @@
         "<all_urls>"
       ],
       "js": [
-        "src/inject.js"
+        "dist/inject.js"
       ]
     }
   ]

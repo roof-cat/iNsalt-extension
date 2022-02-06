@@ -1,4 +1,11 @@
+import browser from "webextension-polyfill";
+
 let _target;
+
+const onChangeInput = () => {
+	_target.iNsalted = false;
+	_target.removeEventListener('change', onChangeInput)
+}
 
 document.addEventListener('keyup', ({target, ctrlKey, key}) => {
 	if (!ctrlKey || (key !== '\\' && key !== '/') || target.nodeName !== 'INPUT' ||
@@ -7,14 +14,17 @@ document.addEventListener('keyup', ({target, ctrlKey, key}) => {
 
 	_target = target;
 
-	chrome.runtime.sendMessage({
-		value: target.value,
+	browser.runtime.sendMessage({
+		password: target.value,
 		domain: location.host.replace(/[^.]+\./, '')
 	});
+
 });
 
-chrome.runtime.onMessage.addListener(({password}) => {
+browser.runtime.onMessage.addListener(({password}) => {
 	if (password) {
 		_target.value = password;
+		_target.iNsalted = true;
+		_target.onchange = onChangeInput;
 	}
 });

@@ -1,15 +1,18 @@
-chrome.runtime.onMessage.addListener(({value, domain}, sender) => {
-	chrome.storage.local.get(['secret', 'passLength'], ({secret, passLength}) => {
-		const password = window.insaltEncryptor({value, domain, secret, passLength});
-		if(sender.tab){
-			return chrome.tabs.sendMessage(sender.tab.id, {password});
-		}
-		chrome.runtime.sendMessage({password});
-	});
+import browser from "webextension-polyfill";
+import insaltEncryptor from "@roof-cat/insalt-encryptor/dist/main";
+
+let localData = {};
+browser.storage.local.get(['secret', 'passLength']).then((data) => {
+	localData = data;
 });
 
-chrome.browserAction.setPopup({popup:''});  //disable browserAction's popup
+browser.runtime.onMessage.addListener(({password, domain}, sender, sendResponse) => {
+	const {secret, passLength = 16} = localData;
+	sendResponse({password: insaltEncryptor({value: password, domain, secret, passLength})});
+});
 
-chrome.browserAction.onClicked.addListener(()=>{
-	chrome.tabs.create({url:'/src/options/options.html'});
+browser.browserAction.setPopup({popup: ''});  //disable browserAction's popup
+
+browser.browserAction.onClicked.addListener(() => {
+	chrome.tabs.create({url: 'dist/options.html'});
 });
