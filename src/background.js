@@ -1,5 +1,5 @@
-import browser from "webextension-polyfill";
-import insaltEncryptor from "@roof-cat/insalt-encryptor/dist/main";
+const browser = require("webextension-polyfill");
+const insaltEncryptor = require("@roof-cat/insalt-encryptor/dist/main");
 
 let localData = {};
 browser.storage.local.get(['secret', 'passLength']).then((data) => {

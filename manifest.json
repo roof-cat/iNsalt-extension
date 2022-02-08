@@ -4,9 +4,9 @@
   "manifest_version": 2,
   "description": "Encrypt your passwords",
   "icons": {
-    "16": "node_modules/@roof-cat/insalt-theme/assets/salt.png",
-    "48": "node_modules/@roof-cat/insalt-theme/assets/saltbae-color.png",
-    "128": "node_modules/@roof-cat/insalt-theme/assets/saltbae-color.png"
+    "16": "assets/salt.png",
+    "48": "assets/saltbae-color.png",
+    "128": "assets/saltbae-color.png"
   },
   "default_locale": "en",
   "background": {

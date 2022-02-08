@@ -1,6 +1,6 @@
-import insaltApp from '@roof-cat/insalt-front/dist/module';
-import '@roof-cat/insalt-front/dist/style.css';
-import browser from "webextension-polyfill";
+const insaltApp = require('@roof-cat/insalt-front/dist/module');
+const browser = require("webextension-polyfill");
+require('@roof-cat/insalt-front/dist/style.css');
 
 const STORED_KEYS = ['passLength', 'secret'];
 

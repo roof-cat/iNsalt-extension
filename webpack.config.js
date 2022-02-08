@@ -13,7 +13,7 @@ const config = (entry) => ({
 		path: resolve(__dirname, 'dist'),
 		assetModuleFilename: '[name][ext][query]',
 	},
-	devtool: 'inline-source-map',
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{
@@ -31,7 +31,10 @@ const config = (entry) => ({
 			},
 		]
 	},
-	plugins: [new MiniCssExtractPlugin()]
+	plugins: [new MiniCssExtractPlugin()],
+	externals: {
+		'crypto': 'crypto'
+	}
 });
 
 const background = config('background');

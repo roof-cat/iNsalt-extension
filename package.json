@@ -1,12 +1,15 @@
 {
   "name": "insalt-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
-    "start": "webpack watch --mode=development & web-ext run",
-    "build": "webpack watch --mode=production",
-    "crx": "crx pack",
+    "start": "npm run watch && npm run web-ext:run",
+    "watch": "webpack watch --mode=development",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
+    "web-ext:run": "web-ext run",
     "web-ext:lint": "web-ext lint",
-    "web-ext:build": "web-ext build --overwrite-dest"
+    "web-ext:build": "web-ext build --overwrite-dest",
+    "crx": "crx pack"
   },
   "dependencies": {
     "@roof-cat/insalt-encryptor": "https://github.com/roof-cat/insalt-encryptor",
@@ -16,6 +19,7 @@
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.3",
+    "crx": "^5.0.1",
     "css-loader": "^6.6.0",
     "dotenv": "^16.0.0",
     "html-webpack-plugin": "^5.5.0",
